@@ -1,5 +1,37 @@
 /* font-family: 'Irish Grover', cursive; */
 
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
 h1, h2, h3, h4 {
     font-family: 'Irish Grover', cursive;
 }
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron {
+    padding: 30px;
+    background-image: linear-gradient(to right, indigo, chocolate);
+    color: yellowgreen;
+}
+
+.row-content {
+    padding: 50px 0;
+    border-bottom: 1px ridge;
+    min-height: 200px;
+}
+
+/* body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+} */
