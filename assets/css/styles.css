@@ -14,14 +14,32 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 
-.jumbotron {
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    width: 90vw;
+}
+
+/* .jumbotron {
     padding: 30px;
     background-image: linear-gradient(to right, indigo, chocolate);
     color: yellowgreen;
+} */
+
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
 }
 
-.row-content {
+/* .row-content {
     padding: 50px 0;
     border-bottom: 1px ridge;
     min-height: 200px;
-}
+} */
