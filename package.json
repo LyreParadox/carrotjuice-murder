@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run clean && npm run imagemin && npm run usemin",
+    "clean": "rimraf dist",
+    "imagemin": "imagemin assets/img/* -o dist/img",
+    "lite": "lite-server",
     "start": "npm run lite",
-    "lite": "lite-server"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "usemin": "usemin project1.html -d dist --htmlmin -o dist/project1.html && usemin about.html -d dist --htmlmin -o dist/about.html && index.html -d dist --htmlmin -o dist/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,10 @@
   },
   "homepage": "https://github.com/LyreParadox/carrotjuice-murder#readme",
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "imagemin-cli": "^7.0.0",
+    "lite-server": "^2.6.1",
+    "rimraf": "^3.0.2",
+    "usemin-cli": "^0.6.0"
   },
   "dependencies": {
     "bootstrap": "^4.6.1",
