@@ -1,8 +1,8 @@
 {
   "name": "carrotjuice-murder",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This is a website to fight against the vegindustrial complex",
+  "main": "index.html",
   "scripts": {
     "build": "npm run clean && npm run imagemin && npm run usemin",
     "clean": "rimraf dist",

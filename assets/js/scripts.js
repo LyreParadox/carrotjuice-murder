@@ -1,7 +1,7 @@
 "use strict"
 
 // Expanding cards on the index page:
-/*
+
 const panels = document.querySelectorAll('.panel')
 panels.forEach((panel) => {
     panel.addEventListener('click', () => {
@@ -14,4 +14,3 @@ function removeActiveClasses() {
         panel.classList.remove('active')
     })
 }
-*/
