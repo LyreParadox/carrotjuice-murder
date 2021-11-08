@@ -53,45 +53,75 @@
     <!-- section 1 -->
     <div class="container" id="section1">
         <div class="panel active" style="background-image: url('./assets/img/savoy-cabbage.jpg');">
-            <a href="project1.html" class="text-white">
+            <a href="project1.html" class="text-danger">
                 <h3>Listen up brothers and sisters,</h3>
             </a>
         </div>
         <div class="panel" style="background-image: url('./assets/img/chard-leaf.jpg');">
-            <h3>Come hear my desperate tale.</h3>
+            <a href="" class="text-danger">
+                <h3>Come hear my desperate tale.</h3>
+            </a>
         </div>
         <div class="panel" style="background-image: url('./assets/img/chard.jpg');">
-            <h3>I speak of our friends of nature,</h3>
+            <a href="" class="text-danger">
+                <h3>I speak of our friends of nature,</h3>
+            </a>
         </div>
         <div class="panel" style="background-image: url('./assets/img/tomatoes.jpg');">
-            <h3>Trapped in the dirt like a jail.</h3>
+            <a href="" class="text-danger">
+                <h3>Trapped in the dirt like a jail.</h3>
+            </a>
         </div>
     </div>
 
     <!-- section 2 -->
     <div class="container" id="section2">
-        <div class="panel active" style="background-image: url('./assets/img/savoy-cabbage.jpg');">
-            <a href="project1.html" class="text-white">
-                <h3>Listen up brothers and sisters,</h3>
+        <div class="panel" style="background-image: url('./assets/img/veggies-with-knife.jpg');">
+            <a href="" class="text-danger">
+                <h3>Vegetables live in oppression,</h3>
             </a>
         </div>
-        <div class="panel" style="background-image: url('./assets/img/chard-leaf.jpg');">
-            <h3>Come hear my desperate tale.</h3>
+        <div class="panel" style="background-image: url('./assets/img/grilled-veggies-plate.jpg');">
+            <a href="" class="text-danger">
+                <h3>served on our tables each night.</h3>
+            </a>
         </div>
-        <div class="panel" style="background-image: url('./assets/img/chard.jpg');">
-            <h3>I speak of our friends of nature,</h3>
+        <div class="panel" style="background-image: url('./assets/img/skewered-cut-veggies.jpg');">
+            <a href="" class="text-danger">
+                <h3>This killing of veggies is madness,</h3>
+            </a>
         </div>
-        <div class="panel" style="background-image: url('./assets/img/tomatoes.jpg');">
-            <h3>Trapped in the dirt like a jail.</h3>
+        <div class="panel" style="background-image: url('./assets/img/grilling-veggies-fire.jpg');">
+            <a href="" class="text-danger">
+                <h3>I say we take up the fight!</h3>
+            </a>
         </div>
     </div>
+
+    <!-- Javascript for this page -->
+    <script>
+        "use strict"
+
+        const panels = document.querySelectorAll('.panel')
+        panels.forEach((panel) => {
+            panel.addEventListener('click', () => {
+                removeActiveClasses()
+                panel.classList.add('active')
+            })
+        })
+        function removeActiveClasses() {
+            panels.forEach((panel) => {
+                panel.classList.remove('active')
+            })
+        }
+    </script>
 
     <!-- jQuery comes first, then Popper.js, then the Bootstrap JavaScript plugins.-->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jacvascript link -->
-    <script src="./assets/js/scripts.js"></script>
+    <!-- <script src="./assets/js/scripts.js"></script> -->
 
 </body>
 

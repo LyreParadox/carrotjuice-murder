@@ -82,3 +82,8 @@ p {
     background-image: linear-gradient(to right, indigo, chocolate);
     color: yellowgreen;
 }
+
+/* mouse over link */
+a :hover {
+    color: red;
+  }
