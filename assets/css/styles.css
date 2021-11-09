@@ -1,6 +1,6 @@
 /* font-family: 'Irish Grover', cursive; */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Roboto:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Roboto:wght@400;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -14,7 +14,7 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 
-#section1 {
+#expandingSection1 {
     font-family: 'Irish Grover', cursive;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@ p {
     width: 90vw;
 }
 
-#section2 {
+#expandingSection2 {
     font-family: 'Irish Grover', cursive;
     display: flex;
     align-items: center;
@@ -69,12 +69,6 @@ p {
     opacity: 1;
     transition: opacity 0.3s ease-in 0.4s;
 }
-
-/* .row-content {
-    padding: 50px 0;
-    border-bottom: 1px ridge;
-    min-height: 200px;
-} */
 
 .jumbotron {
     margin: 0;
