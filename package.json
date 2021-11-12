@@ -1,37 +1,37 @@
 {
-  "name": "carrotjuice-murder",
-  "version": "1.0.0",
-  "description": "This is a website to fight against the vegindustrial complex",
-  "main": "index.html",
-  "scripts": {
-    "build": "npm run clean && npm run imagemin && npm run usemin",
-    "clean": "rimraf dist",
-    "imagemin": "imagemin assets/img/* -o dist/assets/img",
-    "lite": "lite-server",
-    "start": "npm run lite",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "usemin": "usemin project1.html -d dist --htmlmin -o dist/project1.html && usemin about.html -d dist --htmlmin -o dist/about.html && usemin index.html -d dist --htmlmin -o dist/index.html"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LyreParadox/carrotjuice-murder.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LyreParadox/carrotjuice-murder/issues"
-  },
-  "homepage": "https://github.com/LyreParadox/carrotjuice-murder#readme",
-  "devDependencies": {
-    "imagemin-cli": "^7.0.0",
-    "lite-server": "^2.6.1",
-    "rimraf": "^3.0.2",
-    "usemin-cli": "^0.6.0"
-  },
-  "dependencies": {
-    "bootstrap": "^4.6.1",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.1"
-  }
+    "name": "carrotjuice-murder",
+    "version": "1.0.0",
+    "description": "This is a website to fight against the vegindustrial complex",
+    "main": "index.html",
+    "scripts": {
+        "build": "npm run clean && npm run imagemin && npm run usemin",
+        "clean": "rimraf dist",
+        "imagemin": "imagemin assets/img/* -o dist/assets/img",
+        "lite": "lite-server",
+        "start": "npm run lite",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "usemin": "usemin about.html -d dist --htmlmin -o dist/about.html && usemin index.html -d dist --htmlmin -o dist/index.html && usemin project1.html -d dist --htmlmin -o dist/project1.html && usemin project2.html -d dist --htmlmin -o dist/project2.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LyreParadox/carrotjuice-murder.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/LyreParadox/carrotjuice-murder/issues"
+    },
+    "homepage": "https://github.com/LyreParadox/carrotjuice-murder#readme",
+    "devDependencies": {
+        "imagemin-cli": "^7.0.0",
+        "lite-server": "^2.6.1",
+        "rimraf": "^3.0.2",
+        "usemin-cli": "^0.6.0"
+    },
+    "dependencies": {
+        "bootstrap": "^4.6.1",
+        "jquery": "^3.5.1",
+        "popper.js": "^1.16.1"
+    }
 }
