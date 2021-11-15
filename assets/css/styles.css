@@ -34,10 +34,6 @@ p {
     width: 90vw;
 }
 
-.navbar {
-    background-color: black;
-}
-
 .panel {
     background-size: cover;
     background-position: center;
@@ -77,7 +73,3 @@ p {
     color: yellowgreen;
 }
 
-/* mouse over link */
-a :hover {
-    color: red;
-  }
