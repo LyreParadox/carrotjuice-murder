@@ -59,6 +59,10 @@
             transition: transform 0.5s linear;
         }
 
+        .container.show-nav .circle {
+            transform: rotate(-70deg);
+        }
+
         .circle button {
             cursor: pointer;
             position: absolute;
@@ -85,6 +89,11 @@
             transform-origin: top left;
         }
 
+        .container.container.show-nav+nav li {
+            transform: translateX(0);
+            transition-delay: 0.3;
+        }
+
         nav {
             position: fixed;
             bottom: 40px;
@@ -99,10 +108,25 @@
 
         nav ul li {
             text-transform: uppercase;
-            color: white;
+            color: #fff;
             margin: 40px 0;
-            /* transform: translateX(-100%); */
+            transform: translateX(-100%);
             transition: transform 0.4s ease-in;
+        }
+
+        nav ul li i {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        nav ul li+li {
+            margin-left: 15px;
+            transform: translateX(-150%);
+        }
+
+        nav ul li+li+li {
+            margin-left: 30px;
+            transform: translateX(-200%);
         }
 
         .content img {
@@ -134,7 +158,7 @@
 
 <body>
     <!-- corner nav -->
-    <div class="container show-nav">
+    <div class="container">
         <div class=" circle-container">
             <div class="circle">
                 <button id="close">
@@ -146,7 +170,7 @@
             </div>
         </div>
         <!-- CONTENT goes Here -->
-        <div class="content">
+        <div class="content">           
             <h1>Project3 - Rotating Navigation</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quaerat aliquam quia suscipit accusamus
                 voluptate architecto ut asperiores unde, dignissimos beatae earum, dicta fugit exercitationem molestiae
@@ -169,14 +193,22 @@
 
     <nav>
         <ul>
-            <li class="fas fa-lemon"> Home </li>
-            <li class="fas fa-seedling"> About </li>
-            <li class="fas fa-kiwi-bird"> Contact </li>
+            <li><i class="fas fa-lemon"></i> Home </li>
+            <li><i class="fas fa-seedling"></i> About </li>
+            <li><i class="fas fa-kiwi-bird"></i> Contact </li>
         </ul>
     </nav>
 
     <!-- JS script for this project -->
     <script>
+        'use strict'
+
+        const open = document.getElementById('open')
+        const close = document.getElementById('close')
+        const container = document.querySelector('.container')
+
+        open.addEventListener('click', () => container.classList.add('show-nav'))
+        close.addEventListener('click', () => container.classList.remove('show-nav'))
     </script>
 
 </body>
