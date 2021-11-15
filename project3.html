@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
 
     <!-- internal css -->
     <style>
@@ -16,25 +17,163 @@
             box-sizing: border-box;
         }
 
+        h1,
+        h2,
+        h3 {
+            font-family: 'Irish Grover', serif;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+            background-color: #333;
+            color: #222;
+            overflow-x: hidden;
             margin: 0;
+        }
+
+        .container {
+            background-color: #fafafa;
+            transform-origin: top left;
+            transition: transform 0.5s linear;
+            width: 100vw;
+            min-height: 100vh;
+            padding: 50px;
+        }
+
+        .container.show-nav {
+            transform: rotate(-20deg);
+        }
+
+        .circle-container {
+            position: fixed;
+            top: -100px;
+            left: -100px;
+        }
+
+        .circle {
+            background-color: #ff7979;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            position: relative;
+            transition: transform 0.5s linear;
+        }
+
+        .circle button {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100px;
+            background: transparent;
+            border: 0;
+            font-size: 26px;
+            color: white;
+        }
+
+        .circle button:focus {
+            outline: none;
+        }
+
+        .circle button#open {
+            left: 60%;
+        }
+
+        .circle button#close {
+            top: 60%;
+            transform: rotate(90deg);
+            transform-origin: top left;
+        }
+
+        nav {
+            position: fixed;
+            bottom: 40px;
+            left: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding-left: 30px;
+        }
+
+        nav ul li {
+            text-transform: uppercase;
+            color: white;
+            margin: 40px 0;
+            /* transform: translateX(-100%); */
+            transition: transform 0.4s ease-in;
+        }
+
+        .content img {
+            max-width: 100%;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        .content h1 {
+            margin: 0;
+        }
+
+        .content small {
+            color: #555;
+            font-style: italic;
+        }
+
+        .content p {
+            color: #333;
+            line-height: 1.5;
         }
     </style>
 
-    <title>Project</title>
+    <title>Project3 - Rotating Navigation</title>
 </head>
 
 <body>
-    <h1>Project</h1>
+    <!-- corner nav -->
+    <div class="container show-nav">
+        <div class=" circle-container">
+            <div class="circle">
+                <button id="close">
+                    <i class="fas fa-leaf"></i>
+                </button>
+                <button id="open">
+                    <i class="fas fa-carrot"></i>
+                </button>
+            </div>
+        </div>
+        <!-- CONTENT goes Here -->
+        <div class="content">
+            <h1>Project3 - Rotating Navigation</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quaerat aliquam quia suscipit accusamus
+                voluptate architecto ut asperiores unde, dignissimos beatae earum, dicta fugit exercitationem molestiae
+                temporibus qui blanditiis, nostrum nam obcaecati et nisi ducimus repudiandae autem? Ea animi qui
+                perspiciatis necessitatibus magni ex doloribus dolores libero unde. Optio ducimus provident cum amet,
+                blanditiis delectus dolor velit deleniti iusto est atque sequi exercitationem expedita eum ab odit quae
+                modi omnis aut perspiciatis vero nesciunt, facilis tempora? Dicta, aspernatur ratione error sint veniam
+                dolorum, odit quos sit tenetur voluptatibus quam soluta et reiciendis quis beatae fuga iusto in eveniet
+                sequi quibusdam.</p>
+            <h3>Vegetables Live in Oppression!</h3>
+            <img src="./assets/img/veggies-with-knife.jpg" alt="">
+            <h3>Served on OUR Tables each Night</h3>
+            <img src="./assets/img/grilled-veggies-plate.jpg" alt="">
+            <h3>This Killing of Veggies is Madness</h3>
+            <img src="./assets/img/skewered-cut-veggies.jpg" alt="">
+            <h3>I Say We Take up the Fight!</h3>
+            <img src="./assets/img/grilling-veggies-fire.jpg" alt="">
+        </div>
+    </div>
 
-    <!-- CONTENT goes here -->
+    <nav>
+        <ul>
+            <li class="fas fa-lemon"> Home </li>
+            <li class="fas fa-seedling"> About </li>
+            <li class="fas fa-kiwi-bird"> Contact </li>
+        </ul>
+    </nav>
 
     <!-- JS script for this project -->
     <script>
