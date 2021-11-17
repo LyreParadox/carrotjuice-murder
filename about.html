@@ -1,153 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- font-awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+        <!-- internal css -->
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-    <!-- internal css -->
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+            a {
+                color: #fff;
+            }
 
-        a {
-            color: #fff;
-        }
+            h1,
+            h2,
+            h3 {
+                font-family: "Irish Grover", serif;
+            }
 
-        h1,
-        h2,
-        h3 {
-            font-family: 'Irish Grover', serif;
-        }
+            body {
+                font-family: "Roboto", sans-serif;
+                background-image: linear-gradient(45deg, indigo, chocolate);
+                color: #222;
+                overflow-x: hidden;
+                margin: 0;
+            }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-image: linear-gradient(45deg,  indigo, chocolate);
-            color: #222;
-            overflow-x: hidden;
-            margin: 0;
-        }
+            .container {
+                background-color: #fafafa;
+                transform-origin: top left;
+                transition: transform 0.5s linear;
+                width: 100vw;
+                min-height: 100vh;
+                padding: 50px;
+            }
 
-        .container {
-            background-color: #fafafa;
-            transform-origin: top left;
-            transition: transform 0.5s linear;
-            width: 100vw;
-            min-height: 100vh;
-            padding: 50px;
-        }
+            .container.show-nav {
+                transform: rotate(-20deg);
+            }
 
-        .container.show-nav {
-            transform: rotate(-20deg);
-        }
+            .circle-container {
+                position: fixed;
+                top: -100px;
+                left: -100px;
+            }
 
-        .circle-container {
-            position: fixed;
-            top: -100px;
-            left: -100px;
-        }
+            .circle {
+                background-image: linear-gradient(45deg, indigo, chocolate);
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                position: relative;
+                transition: transform 0.5s linear;
+            }
 
-        .circle {
-            background-image: linear-gradient(45deg,  indigo, chocolate);
-            height: 200px;
-            width: 200px;
-            border-radius: 50%;
-            position: relative;
-            transition: transform 0.5s linear;
-        }
+            .container.show-nav .circle {
+                transform: rotate(-70deg);
+            }
 
-        .container.show-nav .circle {
-            transform: rotate(-70deg);
-        }
+            .circle button {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                height: 100px;
+                background: transparent;
+                border: 0;
+                font-size: 26px;
+                color: white;
+            }
 
-        .circle button {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 100px;
-            background: transparent;
-            border: 0;
-            font-size: 26px;
-            color: white;
-        }
+            .circle button:focus {
+                outline: none;
+            }
 
-        .circle button:focus {
-            outline: none;
-        }
+            .circle button#open {
+                left: 60%;
+            }
 
-        .circle button#open {
-            left: 60%;
-        }
+            .circle button#close {
+                top: 60%;
+                transform: rotate(90deg);
+                transform-origin: top left;
+            }
 
-        .circle button#close {
-            top: 60%;
-            transform: rotate(90deg);
-            transform-origin: top left;
-        }
+            .container.container.show-nav + nav li {
+                transform: translateX(0);
+                transition-delay: 0.3;
+            }
 
-        .container.container.show-nav+nav li {
-            transform: translateX(0);
-            transition-delay: 0.3;
-        }
+            nav {
+                position: fixed;
+                bottom: 40px;
+                left: 0;
+                z-index: 100;
+            }
 
-        nav {
-            position: fixed;
-            bottom: 40px;
-            left: 0;
-            z-index: 100;
-        }
+            nav ul {
+                list-style-type: none;
+                padding-left: 30px;
+            }
 
-        nav ul {
-            list-style-type: none;
-            padding-left: 30px;
-        }
+            nav ul li {
+                text-transform: uppercase;
+                color: #fff;
+                margin: 40px 0;
+                transform: translateX(-100%);
+                transition: transform 0.4s ease-in;
+            }
 
-        nav ul li {
-            text-transform: uppercase;
-            color: #fff;
-            margin: 40px 0;
-            transform: translateX(-100%);
-            transition: transform 0.4s ease-in;
-        }
+            nav ul li i {
+                font-size: 20px;
+                margin-right: 10px;
+            }
 
-        nav ul li i {
-            font-size: 20px;
-            margin-right: 10px;
-        }
+            nav ul li + li {
+                margin-left: 15px;
+                transform: translateX(-150%);
+            }
 
-        nav ul li+li {
-            margin-left: 15px;
-            transform: translateX(-150%);
-        }
+            nav ul li + li + li {
+                margin-left: 30px;
+                transform: translateX(-200%);
+            }
 
-        nav ul li+li+li {
-            margin-left: 30px;
-            transform: translateX(-200%);
-        }
+            .content img {
+                max-width: 100%;
+            }
 
-        .content img {
-            max-width: 100%;
-        }
+            .content iframe {
+                max-width: 100%;
+            }
 
-        .content iframe {
-        max-width: 100%;
-        }
+            .content {
+                max-width: 1000px;
+                margin: 50px auto;
+            }
 
-        .content {
-            max-width: 1000px;
-            margin: 50px auto;
-        }
-
-        /* .content h1 {
+            /* .content h1 {
             margin: 0;
         }
 
@@ -156,147 +160,191 @@
             font-style: italic;
         } */
 
-        .content p {
-            color: #333;
-            line-height: 1.5;
-        }
+            .content p {
+                color: #333;
+                line-height: 1.5;
+            }
 
-        .gradient-text {
-            background-color: #222;
-            background-image: linear-gradient(45deg,  indigo, chocolate);
-            background-size: 75%;
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            -webkit-text-fill-color: transparent; 
-            -moz-text-fill-color: transparent;
-        }
-    </style>
+            .gradient-text {
+                background-color: #222;
+                background-image: linear-gradient(45deg, indigo, chocolate);
+                background-size: 75%;
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -moz-text-fill-color: transparent;
+            }
+        </style>
 
-    <title>Project3 - Rotating Navigation</title>
-</head>
+        <title>Power to the Peas!</title>
+    </head>
 
-<body>
-    <!-- corner nav -->
-    <div class="container">
-        <div class=" circle-container">
-            <div class="circle">
-                <button id="close">
-                    <i class="fas fa-leaf"></i>
-                </button>
-                <button id="open">
-                    <i class="fas fa-carrot"></i>
-                </button>
+    <body>
+        <!-- corner nav -->
+        <div class="container">
+            <div class="circle-container">
+                <div class="circle">
+                    <button id="close">
+                        <i class="fas fa-leaf"></i>
+                    </button>
+                    <button id="open">
+                        <i class="fas fa-carrot"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- CONTENT goes Here -->
+            <div class="content">
+                <h1 class="gradient-text">Carrot Juice is MURDER!</h1>
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/wqzHH85WIwg"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                >
+                </iframe>
+                <h3>Lyrics</h3>
+                <p>
+                    Listen up brothers and sisters,<br />
+                    come hear my desperate tale.<br />
+                    I speak of our friends of nature,<br />
+                    trapped in the dirt like a jail.<br />
+                </p>
+                <p>
+                    Vegetables live in oppression,<br />
+                    served on our tables each night.<br />
+                    This killing of veggies is madness,<br />
+                    I say we take up the fight.<br />
+                </p>
+                <p>
+                    Salads are only for murderers,<br />
+                    coleslaw's a fascist regime.<br />
+                    Don't think that they don't have feelings,<br />
+                    just cause a radish can't scream.<br />
+                </p>
+                <p>
+                    <strong>Chorus:</strong> <br />
+                    I've heard the screams of the vegetables
+                    <em>(scream, scream, scream)</em> <br />
+                    Watching their skins being peeled
+                    <em>(having their insides revealed)</em> <br />
+                    Grated and steamed with no mercy
+                    <em>(burning off calories)</em>
+                    <br />
+                    How do you think that feels
+                    <em>(bet it hurts really bad)</em> <br />
+                    Carrot juice constitutes murder
+                    <em>(and that's a real crime)</em>
+                    <br />
+                    Greenhouses prisons for slaves
+                    <em>(let my vegetables go)</em> <br />
+                    It's time to stop all this gardening
+                    <em>(it's dirty as hell)</em>
+                    <br />
+                    Let's call a spade a spade
+                    <em>(is a spade, is a spade, is a spade)</em> <br />
+                </p>
+                <p>
+                    I saw a man eating celery,<br />
+                    so I beat him black and blue.<br />
+                    If he ever touches a sprout again,<br />
+                    I'll bite him clean in two.<br />
+                </p>
+                <p>
+                    I'm a political prisoner,<br />
+                    trapped in a windowless cage.<br />
+                    Cause I stopped the slaughter of turnips<br />
+                    by killing five men in a rage<br />
+                </p>
+                <p>
+                    I told the judge when he sentenced me,<br />
+                    This is my finest hour,<br />
+                    I'd kill those farmers again<br />
+                    just to save one more cauliflower.<br />
+                </p>
+                <p>
+                    <strong>Chorus:</strong> <br />
+                    I've heard the screams of the vegetables
+                    <em>(scream, scream, scream)</em> <br />
+                    Watching their skins being peeled
+                    <em>(having their insides revealed)</em> <br />
+                    Grated and steamed with no mercy
+                    <em>(burning off calories)</em>
+                    <br />
+                    How do you think that feels
+                    <em>(bet it hurts really bad)</em> <br />
+                    Carrot juice constitutes murder
+                    <em>(and that's a real crime)</em>
+                    <br />
+                    Greenhouses prisons for slaves
+                    <em>(let my vegetables go)</em> <br />
+                    It's time to stop all this gardening
+                    <em>(it's dirty as hell)</em>
+                    <br />
+                    Let's call a spade a spade
+                    <em>(is a spade is a spade is a spade)</em> <br />
+                </p>
+                <p>
+                    How low as people do we dare to stoop,<br />
+                    Making young broccolis bleed in the soup?<br />
+                    Untie your beans, uncage your tomatoes<br />
+                    Let potted plants free, don't mash that potato!<br />
+                </p>
+                <p>
+                    <em>Oh, oh, oh...</em>
+                </p>
+                <p>
+                    <strong>Chorus:</strong> <br />
+                    I've heard the screams of the vegetables
+                    <em>(scream, scream, scream)</em><br />
+                    Watching their skins being peeled
+                    <em>(fates in the stirfry are sealed)</em><br />
+                    Grated and steamed with no mercy
+                    <em>(you fat gourmet slob)</em><br />
+                    How do you think that feels?
+                    <em>(leave them out in the field)</em><br />
+                    Carrot juice constitutes murder <em>(V8's genocide)</em
+                    ><br />
+                    Greenhouses prisons for slaves
+                    <em>(yes, your composts are graves)</em><br />
+                    It's time to stop all this gardening
+                    <em>(take up macrame)</em><br />
+                    Let's call a spade a spade <br />
+                    <em
+                        >(is a spade, is a spade, is a spade, is a spade, is a
+                        spade, is a spade.....</em
+                    >
+                </p>
             </div>
         </div>
-        <!-- CONTENT goes Here -->
-        <div class="content">
-            <h1 class="gradient-text">Carrot Juice is MURDER!</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/wqzHH85WIwg" title="YouTube video player"
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <h3>Lyrics</h3>
-            <p>
-                Listen up brothers and sisters,<br>
-                come hear my desperate tale.<br>
-                I speak of our friends of nature,<br>
-                trapped in the dirt like a jail.<br>
-            </p>
-            <p>
-                Vegetables live in oppression,<br>
-                served on our tables each night.<br>
-                This killing of veggies is madness,<br>
-                I say we take up the fight.<br>
-            </p>
-            <p>
-                Salads are only for murderers,<br>
-                coleslaw's a fascist regime.<br>
-                Don't think that they don't have feelings,<br>
-                just cause a radish can't scream.<br>
-            </p>
-            <p>
-                <strong>Chorus:</strong> <br>
-                I've heard the screams of the vegetables <em>(scream, scream, scream)</em> <br>
-                Watching their skins being peeled <em>(having their insides revealed)</em> <br>
-                Grated and steamed with no mercy <em>(burning off calories)</em> <br>
-                How do you think that feels <em>(bet it hurts really bad)</em> <br>
-                Carrot juice constitutes murder <em>(and that's a real crime)</em> <br>
-                Greenhouses prisons for slaves <em>(let my vegetables go)</em> <br>
-                It's time to stop all this gardening <em>(it's dirty as hell)</em> <br>
-                Let's call a spade a spade <em>(is a spade, is a spade, is a spade)</em> <br>
-            </p>
-            <p>
-                I saw a man eating celery,<br>
-                so I beat him black and blue.<br>
-                If he ever touches a sprout again,<br>
-                I'll bite him clean in two.<br>
-            </p>
-            <p>
-                I'm a political prisoner,<br>
-                trapped in a windowless cage.<br>
-                Cause I stopped the slaughter of turnips<br>
-                by killing five men in a rage<br>
-            </p>
-            <p>
-                I told the judge when he sentenced me,<br>
-                This is my finest hour,<br>
-                I'd kill those farmers again<br>
-                just to save one more cauliflower.<br>
-            </p>
-            <p>
-                <strong>Chorus:</strong> <br>
-                I've heard the screams of the vegetables <em>(scream, scream, scream)</em> <br>
-                Watching their skins being peeled <em>(having their insides revealed)</em> <br>
-                Grated and steamed with no mercy <em>(burning off calories)</em> <br>
-                How do you think that feels <em>(bet it hurts really bad)</em> <br>
-                Carrot juice constitutes murder <em>(and that's a real crime)</em> <br>
-                Greenhouses prisons for slaves <em>(let my vegetables go)</em> <br>
-                It's time to stop all this gardening <em>(it's dirty as hell)</em> <br>
-                Let's call a spade a spade <em>(is a spade is a spade is a spade)</em> <br>
-            </p>
-            <p>
-                How low as people do we dare to stoop,<br>
-                Making young broccolis bleed in the soup?<br>
-                Untie your beans, uncage your tomatoes<br>
-                Let potted plants free, don't mash that potato!<br>
-            </p>
-            <p>
-                <em>Oh, oh, oh...</em>
-            </p>
-            <p>
-                <strong>Chorus:</strong> <br>
-                I've heard the screams of the vegetables <em>(scream, scream, scream)</em><br>
-                Watching their skins being peeled <em>(fates in the stirfry are sealed)</em><br>
-                Grated and steamed with no mercy <em>(you fat gourmet slob)</em><br>
-                How do you think that feels? <em>(leave them out in the field)</em><br>
-                Carrot juice constitutes murder <em>(V8's genocide)</em><br>
-                Greenhouses prisons for slaves <em>(yes, your composts are graves)</em><br>
-                It's time to stop all this gardening <em>(take up macrame)</em><br>
-                Let's call a spade a spade <br>
-                <em>(is a spade, is a spade, is a spade, is a spade, is a spade, is a spade.....</em>
-            </p>
-        </div>
-    </div>
 
-    <nav>
-        <ul>
-            <li><a href="index.html"><i class="fas fa-lemon"></i> Home </a></li>
-            <li><a href="#"><i class="fas fa-seedling"></i> About </a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html"><i class="fas fa-lemon"></i> Home </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-seedling"></i> About </a>
+                </li>
+            </ul>
+        </nav>
 
-    <!-- JS script for this project -->
-    <script>
-        'use strict'
+        <!-- JS script for this project -->
+        <script>
+            "use strict";
 
-        const open = document.getElementById('open')
-        const close = document.getElementById('close')
-        const container = document.querySelector('.container')
+            const open = document.getElementById("open");
+            const close = document.getElementById("close");
+            const container = document.querySelector(".container");
 
-        open.addEventListener('click', () => container.classList.add('show-nav'))
-        close.addEventListener('click', () => container.classList.remove('show-nav'))
-    </script>
-
-</body>
-
+            open.addEventListener("click", () =>
+                container.classList.add("show-nav")
+            );
+            close.addEventListener("click", () =>
+                container.classList.remove("show-nav")
+            );
+        </script>
+    </body>
 </html>
