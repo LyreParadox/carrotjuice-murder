@@ -10,7 +10,7 @@
         "lite": "lite-server",
         "start": "npm run lite",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "usemin": "usemin about.html -d dist --htmlmin -o dist/about.html && usemin index.html -d dist --htmlmin -o dist/index.html && usemin project1.html -d dist --htmlmin -o dist/project1.html && usemin project2.html -d dist --htmlmin -o dist/project2.html && usemin project3.html -d dist --htmlmin -o dist/project3.html && usemin project4.html -d dist --htmlmin -o dist/project4.html"
+        "usemin": "usemin about.html -d dist --htmlmin -o dist/about.html && usemin index.html -d dist --htmlmin -o dist/index.html && usemin project1.html -d dist --htmlmin -o dist/project1.html && usemin project2.html -d dist --htmlmin -o dist/project2.html && usemin project3.html -d dist --htmlmin -o dist/project3.html && usemin project4.html -d dist --htmlmin -o dist/project4.html && usemin project5.html -d dist --htmlmin -o dist/project5.html"
     },
     "repository": {
         "type": "git",
