@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <!-- internal css -->
         <style>
-            @import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+            @import url("https://fonts.googleapis.com/css?family=Irish+Grover&display=swap");
 
             * {
                 margin: 0;
@@ -15,12 +15,12 @@
             }
 
             html {
-                font-size: 62.5%;
+                font-size: 100%;
                 box-sizing: border-box;
             }
 
             body {
-                font-family: "Press Start 2P", sans-serif;
+                font-family: "Irish Grover", sans-serif;
                 color: #eee;
                 background-color: #222;
                 /* background-color: #60b347; */
@@ -129,13 +129,12 @@
         <title>Guess My Number!</title>
     </head>
     <!-- CONTENT goes here -->
-    <!-- TODO: change this to a "Save my Veggie" game & add the brand colors & font -->
     <body>
         <header>
             <h1>Save the Veggies!</h1>
             <p class="between">(Guess the number between 1 and 20)</p>
             <button class="btn again">Again!</button>
-            <div class="number">?</div>
+            <div class="number">🥗</div>
         </header>
         <main>
             <section class="left">
@@ -153,12 +152,13 @@
             </section>
         </main>
 
+        <!-- TODO: is it possible to create an array of veg emoji's and have one randomly selected & inserted into the "?" box everytime the game resets? -->
         <!-- JS for this project -->
         <script>
             "use strict";
             // Sets the secretNumber the player is trying to guess
             const secretNumber = Math.trunc(Math.random() * 20) + 1;
-            document.querySelector(".number").textContent = secretNumber;
+            // document.querySelector(".number").textContent = secretNumber;
             // Starting score. Reduce by 1 for every incorrect guess
             let score = 20;
 
@@ -187,6 +187,7 @@
                         document.querySelector(
                             ".number"
                         ).style.backgroundColor = "#D2691E";
+                        document.querySelector(".number").textContent = "🥬";
 
                         // When player's guess is too high
                     } else if (guess > secretNumber) {
@@ -198,7 +199,7 @@
                                 score;
                         } else {
                             document.querySelector(".message").textContent =
-                                "🥗 No veggies survived!";
+                                "🥙 No veggies survived!";
                             document.querySelector(".score").textContent = 0;
                             document.querySelector(
                                 "body"
@@ -215,7 +216,7 @@
                                 score;
                         } else {
                             document.querySelector(".message").textContent =
-                                "🥗 No veggies survived!";
+                                "🥙 No veggies survived!";
                             document.querySelector(".score").textContent = 0;
                             document.querySelector(
                                 "body"
