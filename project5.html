@@ -132,23 +132,23 @@
     <!-- TODO: change this to a "Save my Veggie" game & add the brand colors & font -->
     <body>
         <header>
-            <h1>Guess My Number!</h1>
-            <p class="between">(Between 1 and 20)</p>
+            <h1>Save the Veggies!</h1>
+            <p class="between">(Guess the number between 1 and 20)</p>
             <button class="btn again">Again!</button>
             <div class="number">?</div>
         </header>
         <main>
             <section class="left">
                 <input type="number" class="guess" />
-                <button class="btn check">Check!</button>
+                <button class="btn check">Guess!</button>
             </section>
             <section class="right">
                 <p class="message">Start guessing...</p>
                 <p class="label-score">
-                    💯 Score: <span class="score">20</span>
+                    🥦 Veggies Saved: <span class="score">20</span>
                 </p>
                 <p class="label-highscore">
-                    🥇 Highscore: <span class="highscore">0</span>
+                    🍆 Highscore: <span class="highscore">0</span>
                 </p>
             </section>
         </main>
@@ -158,6 +158,7 @@
             "use strict";
             // Sets the secretNumber the player is trying to guess
             const secretNumber = Math.trunc(Math.random() * 20) + 1;
+            document.querySelector(".number").textContent = secretNumber;
             // Starting score. Reduce by 1 for every incorrect guess
             let score = 20;
 
@@ -178,11 +179,14 @@
                         // If the guess is correct & player wins
                     } else if (guess === secretNumber) {
                         document.querySelector(".message").textContent =
-                            "🎉 Correct Number!";
+                            "🥕🥔🍅 You saved the Vegetables!";
                         // changing the CSS style to change the background color when the player guesses correctly.
                         document.querySelector("body").style.backgroundColor =
-                            "#7cfc00";
+                            "#4b0082";
                         document.querySelector(".number").style.width = "50rem";
+                        document.querySelector(
+                            ".number"
+                        ).style.backgroundColor = "#D2691E";
 
                         // When player's guess is too high
                     } else if (guess > secretNumber) {
@@ -194,8 +198,11 @@
                                 score;
                         } else {
                             document.querySelector(".message").textContent =
-                                "😞 You lost";
+                                "🥗 No veggies survived!";
                             document.querySelector(".score").textContent = 0;
+                            document.querySelector(
+                                "body"
+                            ).style.backgroundColor = "red";
                         }
 
                         // When player's guess is too low
@@ -208,8 +215,11 @@
                                 score;
                         } else {
                             document.querySelector(".message").textContent =
-                                "😞 You lost";
+                                "🥗 No veggies survived!";
                             document.querySelector(".score").textContent = 0;
+                            document.querySelector(
+                                "body"
+                            ).style.backgroundColor = "red";
                         }
                     }
                 });
