@@ -23,27 +23,112 @@
             }
 
             body {
+                background-color: #efedd6;
                 font-family: "Roboto", sans-serif;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                height: 100vh;
-                overflow: hidden;
                 margin: 0;
+                overflow-x: hidden;
+            }
+
+            h1 {
+                margin: 10px;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-family: "Irish Grover", serif;
+            }
+
+            .box {
+                background-color: steelblue;
+                color: whitesmoke;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 400px;
+                height: 200px;
+                margin: 10px;
+                border-radius: 10px;
+                box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+                transform: translateX(400%);
+                transition: transform 0.4s ease;
+            }
+
+            .box:nth-of-type(even) {
+                transform: translateX(-400%);
+            }
+
+            .box.show {
+                transform: translateX(0);
+            }
+            .box h2 {
+                font-size: 45px;
+            }
+
+            .boxes {
+                margin-bottom: 50px;
             }
         </style>
 
-        <title>Project6</title>
+        <title>Project6 - scroll animation</title>
     </head>
 
     <body>
         <!-- CONTENT goes here -->
-        <h1>Project6</h1>
-
+        <h1>Project6 - scroll to see the animation</h1>
+        <div class="boxes">
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+            <div class="box">
+                <h2>Content</h2>
+            </div>
+        </div>
         <!-- JS script for this project -->
         <script>
             "use strict";
+
+            const boxes = document.querySelectorAll(".box");
+
+            window.addEventListener("scroll", checkBoxes);
+
+            checkBoxes();
+
+            function checkBoxes() {
+                // this stores when the animation will run. When the height of the window is 4/5ths or 80% of the total height of the window.
+                const triggerBottom = window.innerHeight * 0.7;
+
+                boxes.forEach((box) => {
+                    const boxTop = box.getBoundingClientRect().top;
+                    if (boxTop < triggerBottom) {
+                        box.classList.add("show");
+                    } else {
+                        box.classList.remove("show");
+                    }
+                });
+            }
         </script>
     </body>
 </html>
