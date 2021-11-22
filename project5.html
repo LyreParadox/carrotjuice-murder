@@ -224,7 +224,7 @@
                         }
                     }
                 });
-
+            // TODO: reset the .number background color & reset the .number emoji
             document
                 .querySelector(".again")
                 .addEventListener("click", function () {
@@ -233,13 +233,15 @@
 
                     document.querySelector(".message").textContent =
                         "Start guessing...";
-                    document.querySelector(".number").textContent = "?";
+                    document.querySelector(".number").textContent = "🥗";
                     document.querySelector(".score").textContent = score;
                     document.querySelector(".guess").value = "";
 
                     document.querySelector("body").style.backgroundColor =
                         "#222";
                     document.querySelector(".number").style.width = "15rem";
+                    document.querySelector(".number").style.backgroundColor =
+                        "#fff";
                 });
         </script>
     </body>
