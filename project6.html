@@ -111,13 +111,9 @@
         <!-- JS script for this project -->
         <script>
             "use strict";
-
             const boxes = document.querySelectorAll(".box");
-
             window.addEventListener("scroll", checkBoxes);
-
             checkBoxes();
-
             function checkBoxes() {
                 // this stores when the animation will run. When the height of the window is 4/5ths or 80% of the total height of the window.
                 const triggerBottom = window.innerHeight * 0.7;

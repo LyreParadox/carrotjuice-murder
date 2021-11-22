@@ -25,19 +25,83 @@
             a {
                 color: #fff;
             }
-
             h1,
             h2,
             h3 {
                 font-family: "Irish Grover", serif;
             }
-
             body {
                 font-family: "Roboto", sans-serif;
                 background-image: linear-gradient(45deg, indigo, chocolate);
                 color: #222;
                 overflow-x: hidden;
                 margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            nav {
+                position: fixed;
+                bottom: 40px;
+                left: 0;
+                z-index: 100;
+            }
+            nav ul {
+                list-style-type: none;
+                padding-left: 30px;
+            }
+            nav ul li {
+                text-transform: uppercase;
+                color: #fff;
+                margin: 40px 0;
+                transform: translateX(-100%);
+                transition: transform 0.4s ease-in;
+            }
+            nav ul li a {
+                color: #fff;
+            }
+            nav ul li i {
+                font-size: 20px;
+                margin-right: 10px;
+            }
+            nav ul li + li {
+                margin-left: 15px;
+                transform: translateX(-150%);
+            }
+            nav ul li + li + li {
+                margin-left: 30px;
+                transform: translateX(-200%);
+            }
+
+            .box {
+                background-image: linear-gradient(-45deg, indigo, chocolate);
+                color: whitesmoke;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 400px;
+                height: 200px;
+                margin: 10px;
+                border-radius: 10px;
+                box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+                transform: translateX(400%);
+                transition: transform 0.4s ease;
+            }
+            /* This will apply these rules to every other box*/
+            .box:nth-of-type(even) {
+                transform: translateX(-400%);
+                background-image: linear-gradient(45deg, indigo, chocolate);
+            }
+            /* This tells what will happen when the .show class is added by the JS - the translateX will be set to 0, from its original position off screen (@400 or -400) */
+            .box.show {
+                transform: translateX(0);
+            }
+            .box h2 {
+                font-size: 45px;
+            }
+            .boxes {
+                margin-bottom: 50px;
             }
 
             .content-container {
@@ -104,45 +168,6 @@
                 transition-delay: 0.3;
             }
 
-            nav {
-                position: fixed;
-                bottom: 40px;
-                left: 0;
-                z-index: 100;
-            }
-
-            nav ul {
-                list-style-type: none;
-                padding-left: 30px;
-            }
-
-            nav ul li {
-                text-transform: uppercase;
-                color: #fff;
-                margin: 40px 0;
-                transform: translateX(-100%);
-                transition: transform 0.4s ease-in;
-            }
-
-            nav ul li a {
-                color: #fff;
-            }
-
-            nav ul li i {
-                font-size: 20px;
-                margin-right: 10px;
-            }
-
-            nav ul li + li {
-                margin-left: 15px;
-                transform: translateX(-150%);
-            }
-
-            nav ul li + li + li {
-                margin-left: 30px;
-                transform: translateX(-200%);
-            }
-
             .content img {
                 max-width: 50%;
             }
@@ -150,6 +175,10 @@
             .content {
                 max-width: 1000px;
                 margin: 50px auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
 
             .content h1 {
@@ -169,7 +198,7 @@
             .gradient-text {
                 background-color: #222;
                 background-image: linear-gradient(45deg, indigo, chocolate);
-                background-size: 75%;
+                background-size: 50%;
                 -webkit-background-clip: text;
                 -moz-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -199,49 +228,49 @@
                 <div class="content">
                     <h1 class="gradient-text">Carrot Juice is MURDER!</h1>
                     <hr />
-                    <h3>Listen up brothers and sisters,</h3>
-                    <a href="./project1.html"
-                        ><img src="./assets/img/tomatoes.jpg" alt=""
-                    /></a>
-                    <h3>come hear my desperate tale.</h3>
-                    <a href="./project2.html"
-                        ><img src="./assets/img/chard.jpg" alt=""
-                    /></a>
-                    <h3>I speak of our friends of nature,</h3>
-                    <a href="./project3.html"
-                        ><img src="./assets/img/savoy-cabbage.jpg" alt=""
-                    /></a>
-                    <h3>trapped in the dirt like a jail.</h3>
-                    <a href="./project4.html"
-                        ><img
-                            src="./assets/img/multicolored-carrots.jpg"
-                            alt=""
-                    /></a>
-                    <hr />
-                    <h3>Vegetables live in oppression,</h3>
-                    <a href="./project5.html"
-                        ><img
-                            src="./assets/img/veggies-with-knife.jpg"
-                            alt=""
-                        />
-                    </a>
-                    <h3>served on our tables each night.</h3>
-                    <a href="./project6.html"
-                        ><img
-                            src="./assets/img/grilled-veggies-plate.jpg"
-                            alt=""
-                        />
-                    </a>
-                    <h3>This killing of veggies is madness,</h3>
-                    <a href="./project3.html"
-                        ><img
-                            src="./assets/img/skewered-cut-veggies.jpg"
-                            alt=""
-                        />
-                    </a>
-                    <h3>I say we take up the fight.</h3>
-                    <img src="./assets/img/grilling-veggies-fire.jpg" alt="" />
-                    <hr />
+                    <div class="boxes">
+                        <div class="box">
+                            <a href="./project1.html">
+                                <h2>Project 1</h2>
+                            </a>
+                        </div>
+                        <div class="box">
+                            <a href="./project2.html">
+                                <h2>Project 2</h2>
+                            </a>
+                        </div>
+                        <div class="box">
+                            <a href="./project3.html">
+                                <h2>Project 3</h2>
+                            </a>
+                        </div>
+                        <div class="box">
+                            <a href="./project4.html">
+                                <h2>Project4</h2>
+                            </a>
+                        </div>
+                        <div class="box">
+                            <a href="./project5.html">
+                                <h2>Project 5</h2>
+                            </a>
+                        </div>
+                        <div class="box">
+                            <a href="./project6.html">
+                                <h2>Project 6</h2>
+                            </a>
+                        </div>
+                        <hr />
+                        <div class="box">
+                            <a href="">
+                                <h2>Project 7</h2>
+                            </a>
+                        </div>
+                        <div class="box">
+                            <a href="">
+                                <h2>Project 8</h2>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -262,17 +291,33 @@
         <!-- JS script for this project -->
         <script>
             "use strict";
-
+            // JS for circle navigation
             const open = document.getElementById("open");
             const close = document.getElementById("close");
             const container = document.querySelector(".container");
-
             open.addEventListener("click", () =>
                 container.classList.add("show-nav")
             );
             close.addEventListener("click", () =>
                 container.classList.remove("show-nav")
             );
+            // JS for slide-in scroll animation
+            const boxes = document.querySelectorAll(".box");
+            window.addEventListener("scroll", checkBoxes);
+            checkBoxes();
+            function checkBoxes() {
+                // this stores when the animation will run. When the height of the window is 4/5ths or 80% of the total height of the window.
+                const triggerBottom = window.innerHeight * 0.7;
+
+                boxes.forEach((box) => {
+                    const boxTop = box.getBoundingClientRect().top;
+                    if (boxTop < triggerBottom) {
+                        box.classList.add("show");
+                    } else {
+                        box.classList.remove("show");
+                    }
+                });
+            }
         </script>
     </body>
 </html>
